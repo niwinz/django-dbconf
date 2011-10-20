@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from django.utils.functional import SimpleLazyObject
 from django.conf import settings
 from django.core.cache import get_cache
 
@@ -49,3 +50,5 @@ class LazyDatabaseConf(object):
             return value
         except Conf.DoesNotExist:
             return default
+
+config = SimpleLazyObject(lambda: LazyDatabaseConf())
