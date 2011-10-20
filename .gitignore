@@ -1,0 +1,13 @@
+*.pyc
+*.swp
+*.sqlite
+*.pid
+*.log
+src/media*
+src/backup.*
+src/settings/local.py
+migrations*
+src/niwi/contrib/logging/devel.py
+src/celerybeat-schedule.db
+src/static*
+src/dump.json
