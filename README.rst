@@ -22,8 +22,8 @@ Example:
 Example of usage config object:
 -------------------------------
 
-    from django_dbconf.conf import config
-    val = config.get('google.analytics.code')
+    >>> from django_dbconf.conf import config
+    >>> val = config.get('google.analytics.code')
 
 Example of obtain all config by prefix:
 ---------------------------------------
