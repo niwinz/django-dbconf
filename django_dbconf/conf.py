@@ -38,6 +38,10 @@ class LazyDatabaseConf(object):
         if value and key:
             self.cache.set(key, value, self._cache_timeout)
 
+    def get_range(self, prefix):
+        for item in Conf.objects.filter(key__istartswith=prefix).iterator():
+            yield (item.key, item.val)
+
     def get(self, key, default=None):
         value = self.cache.get(key)
         if value:
