@@ -36,6 +36,7 @@ class LazyDatabaseConf(object):
 
     def set(self, key, value):
         if value and key:
+            self.cache.delete(key)
             self.cache.set(key, value, self._cache_timeout)
 
     def get_range(self, prefix):
@@ -55,4 +56,4 @@ class LazyDatabaseConf(object):
         except Conf.DoesNotExist:
             return default
 
-config = SimpleLazyObject(lambda: LazyDatabaseConf())
+config = LazyDatabaseConf()
