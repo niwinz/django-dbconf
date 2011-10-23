@@ -50,10 +50,15 @@ class LazyDatabaseConf(object):
 
         try:
             qsres = Conf.objects.get(pk=key)
-            key, value = qsres.key, qsres.value
+            key, value = qsres.key, qsres.val
             self.cache.set(key, value, self._cache_timeout)
             return value
         except Conf.DoesNotExist:
             return default
+
+    def __getattr__(self, name):
+        if "_" in name:
+            name = ".".join(name.split("_"))
+        return self.get(name)
 
 config = LazyDatabaseConf()
