@@ -28,7 +28,7 @@ Example of usage config object:
 Example of obtain all config by prefix:
 ---------------------------------------
 
-    >>> print list(config.get_range('google.')
+    >>> print list(config.get_range('google.'))
     [('google.analytics.code', 'XXXXX'), ('google.analytics.domain', '.niwi.be')]
 
 
